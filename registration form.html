@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exp 2: Banking Registration Validation</title>
+    <style>
+        body { font-family: Arial; text-align: center; background-color: #f4f4f4; }
+        .form-container { 
+            background: white; padding: 20px; display: inline-block; 
+            border: 2px solid black; border-radius: 10px; margin-top: 30px;
+            text-align: left;
+        }
+        input { width: 100%; padding: 8px; margin: 10px 0; display: block; box-sizing: border-box; }
+        button { background: black; color: white; padding: 10px; width: 100%; border: none; cursor: pointer; }
+        .error { color: red; font-size: 12px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2 style="text-align: center;">Account Registration</h2>
+        <form id="regForm" onsubmit="return validateForm()">
+            
+            <label>First Name (min 6 chars, alphabets only):</label>
+            <input type="text" id="fname">
+            
+            <label>Last Name:</label>
+            <input type="text" id="lname">
+
+            <label>Password (min 6 chars):</label>
+            <input type="password" id="password">
+
+            <label>E-mail (name@domain.com):</label>
+            <input type="text" id="email">
+
+            <label>Mobile Number (10 digits):</label>
+            <input type="text" id="mobile">
+
+            <label>Address:</label>
+            <textarea id="address" rows="3" style="width:100%"></textarea>
+
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Get values from inputs
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var pass = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var address = document.getElementById("address").value;
+
+            // 1. Validate First Name
+            var nameRegex = /^[A-Za-z]+$/;
+            if (fname.length < 6 || !fname.match(nameRegex)) {
+                alert("First Name must be at least 6 characters and alphabets only.");
+                return false;
+            }
+
+            // 2. Validate Last Name
+            if (lname === "") {
+                alert("Last Name cannot be empty.");
+                return false;
+            }
+
+            // 3. Validate Password
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // 4. Validate E-mail
+            var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!email.match(emailRegex)) {
+                alert("Invalid Email Format (use name@domain.com).");
+                return false;
+            }
+
+            // 5. Validate Mobile Number
+            var mobileRegex = /^[0-9]{10}$/;
+            if (!mobile.match(mobileRegex)) {
+                alert("Mobile Number must be exactly 10 digits.");
+                return false;
+            }
+
+            // 6. Validate Address
+            if (address === "") {
+                alert("Address cannot be empty.");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
