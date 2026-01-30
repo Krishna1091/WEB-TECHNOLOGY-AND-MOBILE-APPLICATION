@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exp 1 - Chennai Interactive Map</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .instruction-text {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-decoration: underline; font-weight: 800;">CHENNAI CITY MAP EXPLORER</h1>
+    <p class="instruction-text">Hover and click on specific areas of the map to see details below.</p>
+
+    <div class="map-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Chennai_map.png/400px-Chennai_map.png" 
+             alt="Chennai City Map" 
+             usemap="#chennai_hotspots" 
+             width="400" height="400">
+
+        <map name="chennai_hotspots">
+            <area shape="rect" coords="200,200,400,400" alt="Marina Beach" 
+                  href="https://en.wikipedia.org/wiki/Marina_Beach" target="map-frame">
+            
+            <area shape="circle" coords="150,150,50" alt="Chennai Central" 
+                  href="https://en.wikipedia.org/wiki/Chennai_Central_railway_station" target="map-frame">
+        </map>
+    </div>
+
+    <br>
+
+    <iframe name="map-frame" width="80%" height="450px" src="https://en.wikipedia.org/wiki/Chennai">
+        <p>Your browser does not support iframes.</p>
+    </iframe>
+
+    <div style="margin-top: 30px;">
+        <p>External Resources:</p>
+        <a href="https://www.chennaicorporation.gov.in/" target="_blank">Official City Website</a> | 
+        <a href="https://www.tamilnadutourism.tn.gov.in/" target="_blank">Tamil Nadu Tourism</a>
+    </div>
+
+</body>
+</html>
