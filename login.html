@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - City Explorer</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        .login-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+        h2 { color: #2c3e50; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #2c3e50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #34495e; }
+        #error-msg { color: #e74c3c; margin-top: 15px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username (admin)">
+        <input type="password" id="password" placeholder="Password (123)">
+        <button onclick="login()">Sign In</button>
+        <p id="error-msg"></p>
+    </div>
+
+    <script>
+        function login() {
+            // Get input values
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var error = document.getElementById("error-msg");
+
+            // Check credentials
+            if (user === "admin" && pass === "123") {
+                // REDIRECT COMMAND
+                // This looks for a file named "map.html" in your folder
+                window.location.href = "map.html";
+            } else {
+                error.innerText = "Invalid Username or Password!";
+            }
+        }
+    </script>
+
+</body>
+</html>

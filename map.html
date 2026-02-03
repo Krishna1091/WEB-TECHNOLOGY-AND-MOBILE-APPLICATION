@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Exp 1 - Chennai Interactive Map</title>
-    
-    <link rel="stylesheet" href="style.css">
-
     <style>
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        .instruction-text {
-            color: #7f8c8d;
-            font-style: italic;
-        }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        .instruction-text { color: #7f8c8d; font-style: italic; }
+        .map-container { border: 2px solid #ccc; display: inline-block; }
     </style>
 </head>
 <body>
@@ -29,6 +21,9 @@
              width="400" height="400">
 
         <map name="chennai_hotspots">
+            <area shape="rect" coords="0,0,100,100" alt="New Hotspot" 
+                  href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124440.33241031267!2d80.1415617062409!3d12.923126588204633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d333f%3A0x44853035ada82f2!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1715851456789!5m2!1sen!2sin" target="map-frame">
+
             <area shape="rect" coords="200,200,400,400" alt="Marina Beach" 
                   href="https://en.wikipedia.org/wiki/Marina_Beach" target="map-frame">
             
@@ -39,7 +34,7 @@
 
     <br>
 
-    <iframe name="map-frame" width="80%" height="450px" src="https://en.wikipedia.org/wiki/Chennai">
+    <iframe name="map-frame" width="80%" height="450px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124440.33241031267!2d80.1415617062409!3d12.923126588204633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d333f%3A0x44853035ada82f2!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1715851456789!5m2!1sen!2sin">
         <p>Your browser does not support iframes.</p>
     </iframe>
 
