@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GET vs POST Demo</title>
+</head>
+
+<body>
+
+<h2>Enter Your Details</h2>
+
+<form action="MethodServlet">
+
+Name: <input type="text" name="name"><br><br>
+
+Age: <input type="text" name="age"><br><br>
+
+<button type="submit" formmethod="get">Submit using GET</button>
+
+<button type="submit" formmethod="post">Submit using POST</button>
+
+</form>
+
+</body>
+</html>
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/MethodServlet")
+
+public class MethodServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String name = request.getParameter("name");
+        String age = request.getParameter("age");
+
+        out.println("<html><body>");
+        out.println("<h2>GET Method Used</h2>");
+        out.println("<p>Name: " + name + "</p>");
+        out.println("<p>Age: " + age + "</p>");
+        out.println("</body></html>");
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        String name = request.getParameter("name");
+        String age = request.getParameter("age");
+
+        out.println("<html><body>");
+        out.println("<h2>POST Method Used</h2>");
+        out.println("<p>Name: " + name + "</p>");
+        out.println("<p>Age: " + age + "</p>");
+        out.println("</body></html>");
+    }
+}
